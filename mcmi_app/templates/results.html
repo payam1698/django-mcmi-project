@@ -1,0 +1,7 @@
+<h1>Your Results</h1>
+<table>
+    <tr><th>Question</th><th>Score</th></tr>
+    {% for key, value in scores.items %}
+        <tr><td>{{ key }}</td><td>{{ value }}</td></tr>
+    {% endfor %}
+</table>

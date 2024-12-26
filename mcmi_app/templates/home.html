@@ -1,0 +1,10 @@
+<h1>Answer the questions</h1>
+<form method="post">
+    {% csrf_token %}
+    {% for question in questions %}
+        <label>{{ question.number }}. {{ question.text }}</label>
+        <input type="radio" name="question_{{ question.id }}" value="True"> Yes
+        <input type="radio" name="question_{{ question.id }}" value="False" checked> No
+    {% endfor %}
+    <button type="submit">Submit</button>
+</form>
