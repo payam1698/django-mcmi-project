@@ -1,1 +1,25 @@
-venv/ 
+# Python
+*.pyc
+__pycache__/
+
+# Django
+db.sqlite3
+*.sqlite3
+
+# Environments
+.env
+env/
+venv/
+
+# Static files
+/static/
+staticfiles/
+
+# Logs
+*.log
+
+# IDEs
+.vscode/
+.idea/
+
+
