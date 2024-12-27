@@ -2,6 +2,7 @@ ALLOWED_HOSTS = ['https://django-mcmi-project.onrender.com']
 DEBUG = True
 ROOT_URLCONF = 'mcmi_project.urls'
 from decouple import config
+ALLOWED_HOSTS = ['https://django-mcmi-project.onrender.com']
 
 DATABASES = {
     'default': {
