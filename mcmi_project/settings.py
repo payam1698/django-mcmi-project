@@ -1,4 +1,4 @@
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['https://django-mcmi-project.onrender.com']
 DEBUG = True
 ROOT_URLCONF = 'mcmi_project.urls'
 from decouple import config
@@ -6,11 +6,11 @@ from decouple import config
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': config('DB_NAME'),
-        'USER': config('DB_USER'),
-        'PASSWORD': config('DB_PASSWORD'),
-        'HOST': config('DB_HOST'),
-        'PORT': config('DB_PORT'),
+        'NAME': config('DB_NAME', default='default_db_name'),
+        'USER': config('DB_USER', default='default_user'),
+        'PASSWORD': config('DB_PASSWORD', default='default_password'),
+        'HOST': config('DB_HOST', default='localhost'),
+        'PORT': config('DB_PORT', default='5432'),
     }
 }
 INSTALLED_APPS = [
