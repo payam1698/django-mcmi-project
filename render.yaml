@@ -1,0 +1,15 @@
+# Exported from Render on 2024-12-27T09:53:47Z
+services:
+- type: web
+  name: django-mcmi-project
+  runtime: python
+  repo: https://github.com/payam1698/django-mcmi-project
+  plan: free
+  envVars:
+  - key: PORT
+    sync: false
+  region: oregon
+  buildCommand: pip install -r requirements.txt && python manage.py collectstatic --noinput && python manage.py migrate
+  startCommand: gunicorn mcmi_project.wsgi:application --bind 0.0.0.0:$PORT --timeout 120
+version: "1"
+
