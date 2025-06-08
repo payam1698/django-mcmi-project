@@ -1,0 +1,25 @@
+{% extends 'mcmi_app/base.html' %}
+
+{% block title %}Item List{% endblock %}
+
+{% block content %}
+<h2>Items</h2>
+<a href="{% url 'item_create' %}">Add New Item</a>
+<ul>
+    {% for item in items %}
+    <li>
+        <a href="{% url 'item_detail' item.pk %}">{{ item.name }}</a>
+        (<a href="{% url 'item_update' item.pk %}">Edit</a> |
+        <a href="{% url 'item_delete' item.pk %}">Delete</a>)
+    </li>
+    {% empty %}
+    <li>No items yet.</li>
+    {% endfor %}
+</ul>
+{% if user.is_authenticated %}
+<form method="post" action="{% url 'logout' %}">
+    {% csrf_token %}
+    <button type="submit">Logout</button>
+</form>
+{% endif %}
+{% endblock %}

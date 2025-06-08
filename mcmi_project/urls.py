@@ -1,7 +1,7 @@
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path, include # Make sure include is imported
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('mcmi_app.urls')),  # اشاره به فایل urls.py اپلیکیشن mcmi_app
+    path('app/', include('mcmi_app.urls')), # Include app URLs
 ]

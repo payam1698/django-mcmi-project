@@ -1,0 +1,13 @@
+{% extends 'mcmi_app/base.html' %}
+
+{% block title %}{% if form.instance.pk %}Edit Item{% else %}Create Item{% endif %}{% endblock %}
+
+{% block content %}
+<h2>{% if form.instance.pk %}Edit Item{% else %}Create New Item{% endif %}</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save</button>
+</form>
+<a href="{% url 'item_list' %}">Cancel</a>
+{% endblock %}
